@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-thumb-featured li button:before {
+  color: red !important;
+  font-size: 16px !important;
+}

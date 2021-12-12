@@ -1,16 +1,37 @@
 import { HorizontalSection } from "@components/molecules";
 import ReviewCard from "@components/molecules/review-card";
 import React from "react";
+import Slider from "react-slick";
 
 const LatestReview = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    dotsClass: 'slick-dots slick-thumb-featured',
+  };
+
   return (
     <div className="grid grid-cols-3 items-center">
       <div className="col-span-2">
         <HorizontalSection title="Latest Review" subTitle="So you can make better purchase decision" withSeeMore>
-          <div className="grid grid-cols-2 gap-10">
-            <ReviewCard />
-            <ReviewCard />
-          </div>
+          <Slider {...settings}>
+            <div className="px-2">
+              <ReviewCard />
+            </div>
+            <div className="px-2">
+              <ReviewCard />
+            </div>
+            <div className="px-2">
+              <ReviewCard />
+            </div>
+            <div className="px-2">
+              <ReviewCard />
+            </div>
+          </Slider>
         </HorizontalSection>
       </div>
       <div>
