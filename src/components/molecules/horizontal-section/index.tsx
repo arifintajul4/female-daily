@@ -10,7 +10,7 @@ type HorizontalSectionType = {
 
 const HorizontalSection = ({ title, subTitle, children, withSeeMore = false, withContainer = false }: HorizontalSectionType) => {
   return (
-    <section className={`my-14 ${withContainer ? 'container' : ''}`}>
+    <section className={`my-12 ${withContainer ? 'container' : ''}`}>
       <div className="flex justify-between items-center">
         <div className="mb-4">
           <h2 className="font-bold text-2xl">{title}</h2>
