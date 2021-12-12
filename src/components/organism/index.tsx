@@ -1,0 +1,1 @@
+export { default as ProductWithEditor } from "./product-with-editor";
