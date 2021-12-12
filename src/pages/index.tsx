@@ -10,30 +10,18 @@ import {
   PopularGroups,
   MacthesProduct
 } from '@components/section';
-import { getHomeData } from '@utils/services/home';
 import { ReactElement, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from "axios";
+import { setDataHome } from 'redux/action';
 
 const HomePage = () => {
-  const [listData, setListData] = useState<any>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-
-  const loadData = async () => {
-    setIsLoading(true)
-    try {
-      const res = await getHomeData()
-      if (res) {
-        setIsLoading(false)
-        setListData(res)
-      } else {
-        setIsLoading(false)
-      }
-    } catch (err: any) {
-      setIsLoading(false)
-    }
-  }
+  const dispacth = useDispatch()
+  const { dataHome, isLoading, isError } = useSelector((state: any) => state.homeReducer)
+  { isError && alert('Internal Server Error') }
 
   useEffect(() => {
-    loadData()
+    dispacth(setDataHome())
   }, [])
 
   return (
@@ -46,7 +34,7 @@ const HomePage = () => {
         ) : (
           <>
             <Bilboard />
-            <EditorChoice isLoading={isLoading} data={listData?.["editor's choice"]} />
+            <EditorChoice isLoading={isLoading} data={dataHome?.["editor's choice"]} />
             <MacthesProduct />
             <div
               style={{ width: 970, height: 250 }}
@@ -54,8 +42,8 @@ const HomePage = () => {
               Horizontal 970x250 <br />
               (Internal campaign only)
             </div>
-            <LatestArticle data={listData?.["latest articles"]} />
-            <LatestReview data={listData?.["latest review"]} />
+            <LatestArticle data={dataHome?.["latest articles"]} />
+            <LatestReview data={dataHome?.["latest review"]} />
             <PopularGroups />
             <LatestVideo />
             <TrendingWeeks />

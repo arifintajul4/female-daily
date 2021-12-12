@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import type { AppProps } from 'next/app'
 import { NextPage } from 'next';
 import { ReactElement, ReactNode } from 'react';
+import { Provider } from 'react-redux';
+import store from 'redux/store';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -18,7 +20,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(
-    <Component {...pageProps} />
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
   )
 }
 

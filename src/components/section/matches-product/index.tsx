@@ -12,9 +12,9 @@ const MacthesProduct = () => {
         </div>
       </div>
       <div className="col-span-3 grid grid-cols-3 gap-5">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard border={false} />
+        <ProductCard border={false} />
+        <ProductCard border={false} />
       </div>
     </section>
   )
