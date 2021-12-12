@@ -3,7 +3,7 @@ import ReviewCard from "@components/molecules/review-card";
 import React from "react";
 import Slider from "react-slick";
 
-const LatestReview = () => {
+const LatestReview = ({ data }: { data: any }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -19,18 +19,15 @@ const LatestReview = () => {
       <div className="col-span-2">
         <HorizontalSection title="Latest Review" subTitle="So you can make better purchase decision" withSeeMore>
           <Slider {...settings}>
-            <div className="px-2">
-              <ReviewCard />
-            </div>
-            <div className="px-2">
-              <ReviewCard />
-            </div>
-            <div className="px-2">
-              <ReviewCard />
-            </div>
-            <div className="px-2">
-              <ReviewCard />
-            </div>
+            {
+              data?.map((el: any, idx: number) => {
+                return (
+                  <div key={idx} className="px-2">
+                    <ReviewCard data={el} />
+                  </div>
+                )
+              })
+            }
           </Slider>
         </HorizontalSection>
       </div>

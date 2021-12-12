@@ -1,21 +1,54 @@
 import { MainLayout } from '@components/layout';
-import { Bilboard, LatestArticle, LatestReview, TopBrands, TrendingWeeks } from '@components/section';
-import EditorChoice from '@components/section/editor-choice';
-import LatestVideo from '@components/section/latest-video';
-import PopularGroups from '@components/section/popular-groups';
-import { ReactElement } from 'react';
+import {
+  Bilboard,
+  LatestArticle,
+  LatestReview,
+  TopBrands,
+  TrendingWeeks,
+  EditorChoice,
+  LatestVideo,
+  PopularGroups
+} from '@components/section';
+import { getHomeData } from '@utils/services/home';
+import { ReactElement, useEffect, useState } from 'react';
 
 const HomePage = () => {
+  const [listData, setListData] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string>('')
+
+  const loadData = async () => {
+    setIsLoading(true)
+    try {
+      const res = await getHomeData()
+      if (res) {
+        setIsLoading(false)
+        setListData(res)
+      } else {
+        setIsLoading(false)
+      }
+    } catch (err: any) {
+      console.log(err)
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
   return (
     <div className='mt-32'>
       <Bilboard />
-      <EditorChoice />
-      <div style={{ width: 970, height: 250 }} className="border text-center text-2xl border-gray-super-light px-10 font-bold text-gray-dark flex justify-center items-center bg-gray-light m-auto mt-2">
+      <EditorChoice isLoading={isLoading} data={listData?.["editor's choice"]} />
+      <div
+        style={{ width: 970, height: 250 }}
+        className="border text-center text-2xl border-gray-super-light px-10 font-bold text-gray-dark flex justify-center items-center bg-gray-light m-auto mt-2">
         Horizontal 970x250 <br />
         (Internal campaign only)
       </div>
-      <LatestArticle />
-      <LatestReview />
+      <LatestArticle data={listData?.["latest articles"]} />
+      <LatestReview data={listData?.["latest review"]} />
       <PopularGroups />
       <LatestVideo />
       <TrendingWeeks />

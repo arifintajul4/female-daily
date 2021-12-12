@@ -4,25 +4,25 @@ import Image from "next/image";
 import SampleProduct from "@assets/images/sample-product.png";
 import SamplePeople from "@assets/images/sample-editor.jpg";
 
-const ReviewCard = () => {
+const ReviewCard = ({ data }: { data: any }) => {
   return (
     <div className="relative">
       <Card border rounded>
         <figure className="flex gap-2 border-b border-gray pb-4">
-          <Image width={70} height={70} alt="Sample Product" src={SampleProduct} />
+          <Image width={70} height={70} alt="Sample Product" src={data?.product?.image} />
           <figcaption className="leading-none">
             <a href="">
-              <h1 className="font-bold text-base hover:text-red">VAL BY VALERIE THOMAS</h1>
+              <h1 className="font-bold text-base hover:text-red">{data?.product?.name}</h1>
             </a>
-            <p className="font-semibold">C E Ferulic</p>
+            <p className="font-semibold">{data?.product?.desc}</p>
           </figcaption>
         </figure>
         <div className="pt-2 pb-5">
           <div className="flex justify-between">
-            <Rating stars={4} />
+            <Rating stars={data?.star} />
             <p className="text-gray-light text-sm">2 Hours Ago</p>
           </div>
-          <p className="line-clamp-4 mt-2">Lorem ipsum dolor sit amet, commodo facilisis usu ex, at eum suscipit recteque. Duis scribentur eum in. Possit menandri gloriatur no sit, at eos affert civibus probatus. Ut pericula eloquentiam vix, doctus alienum pericula eu vis. Et duo alterum lucilius eleifend, sea tollit labore maiestatis id, qui at illud evertitur efficiendi.
+          <p className="line-clamp-4 mt-2">{data?.comment}
           </p>
         </div>
       </Card>
@@ -32,8 +32,8 @@ const ReviewCard = () => {
             <Image className="rounded-full" width={50} height={50} src={SamplePeople} alt="Sample People" />
           </div>
           <figcaption className="text-center">
-            <p className="font-semibold opacity-90">Putri Deani</p>
-            <p className="text-sm text-gray-super-light">Combination Skin, 25-29</p>
+            <p className="font-semibold opacity-90">{data?.user}</p>
+            <p className="text-sm text-gray-super-light">{data?.profile.toString().split(',').join(', ')}</p>
           </figcaption>
         </figure>
       </div>
