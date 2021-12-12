@@ -8,3 +8,4 @@ export { default as TopBrands } from './top-brands';
 export { default as EditorChoice } from './editor-choice';
 export { default as LatestVideo } from './latest-video';
 export { default as PopularGroups } from './popular-groups';
+export { default as MacthesProduct } from './matches-product';

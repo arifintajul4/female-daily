@@ -7,7 +7,8 @@ import {
   TrendingWeeks,
   EditorChoice,
   LatestVideo,
-  PopularGroups
+  PopularGroups,
+  MacthesProduct
 } from '@components/section';
 import { getHomeData } from '@utils/services/home';
 import { ReactElement, useEffect, useState } from 'react';
@@ -15,7 +16,6 @@ import { ReactElement, useEffect, useState } from 'react';
 const HomePage = () => {
   const [listData, setListData] = useState<any>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>('')
 
   const loadData = async () => {
     setIsLoading(true)
@@ -47,9 +47,10 @@ const HomePage = () => {
           <>
             <Bilboard />
             <EditorChoice isLoading={isLoading} data={listData?.["editor's choice"]} />
+            <MacthesProduct />
             <div
               style={{ width: 970, height: 250 }}
-              className="border text-center text-2xl border-gray-super-light px-10 font-bold text-gray-dark flex justify-center items-center bg-gray-light m-auto mt-2">
+              className="border container text-center text-2xl border-gray-super-light px-10 font-bold text-gray-dark flex justify-center items-center bg-gray-light m-auto mt-2">
               Horizontal 970x250 <br />
               (Internal campaign only)
             </div>
@@ -59,7 +60,7 @@ const HomePage = () => {
             <LatestVideo />
             <TrendingWeeks />
             <TopBrands />
-            <div className='my-10'>
+            <div className='my-10 container'>
               <h1 className='font-bold text-2xl mb-2'>Female Daily - Find Everything you want to know about beauty on Female Daily</h1>
               <h2 className='font-semibold text-xl leading-tight'>Product Reviews, Tips & Tricks, Expert and Consumer Opinions, Beauty Tutorials, Discussions, Beauty Workshops, anything! <br />
                 We are here to be your friendly solution to all things beauty, inside and out!

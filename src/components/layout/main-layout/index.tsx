@@ -9,7 +9,7 @@ const MainLayout = ({ children }: any) => {
         <title>Female Daily</title>
       </Head>
       <Header />
-      <main className="container my-5">
+      <main className="my-5">
         {children}
       </main>
       <Footer />

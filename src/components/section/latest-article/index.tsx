@@ -4,7 +4,7 @@ import React from "react";
 
 const LatestArticle = ({ data }: { data: any }) => {
   return (
-    <HorizontalSection title="Latest Articles" subTitle="So you can make better purchase decision" withSeeMore>
+    <HorizontalSection withContainer title="Latest Articles" subTitle="So you can make better purchase decision" withSeeMore>
       <div className="grid grid-cols-3 gap-7">
         {
           data?.map((el: any, idx: number) => {

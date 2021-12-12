@@ -15,7 +15,7 @@ const LatestReview = ({ data }: { data: any }) => {
   };
 
   return (
-    <div className="grid grid-cols-3 items-center">
+    <div className="grid grid-cols-3 items-center container">
       <div className="col-span-2">
         <HorizontalSection title="Latest Review" subTitle="So you can make better purchase decision" withSeeMore>
           <Slider {...settings}>

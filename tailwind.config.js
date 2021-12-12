@@ -20,6 +20,11 @@ module.exports = {
       },
       red: "#db284e",
     },
+    extend: {
+      backgroundImage: {
+        "woman-image": "url('../assets/images/bg-image.png')",
+      },
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

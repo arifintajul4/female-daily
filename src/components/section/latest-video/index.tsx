@@ -4,7 +4,7 @@ import React from "react";
 
 const LatestVideo = () => {
   return (
-    <HorizontalSection title="Latest Videos" subTitle="Watch and learn, ladies" withSeeMore>
+    <HorizontalSection withContainer title="Latest Videos" subTitle="Watch and learn, ladies" withSeeMore>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-2">
           <Card padding={false}>

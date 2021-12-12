@@ -14,7 +14,7 @@ const TrenndingWeeks = () => {
     dotsClass: 'slick-dots slick-thumb-featured',
   };
   return (
-    <HorizontalSection title="Trending This Weeks" subTitle="See our weekly most reviewed products" >
+    <HorizontalSection withContainer title="Trending This Weeks" subTitle="See our weekly most reviewed products" >
 
       <Slider {...settings}>
         <ProductCard border={false} />

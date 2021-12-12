@@ -2,7 +2,7 @@ import React from "react";
 
 const Bilboard = () => {
   return (
-    <section className="space-y-5">
+    <section className="space-y-5 container">
       <div style={{ width: 970, height: 50 }} className="border text-2xl border-gray-super-light px-10 font-bold text-gray-dark flex justify-center items-center bg-gray-light m-auto mt-2">
         Top Frame 970x50
       </div>
