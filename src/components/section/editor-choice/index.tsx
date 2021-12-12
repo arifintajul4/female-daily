@@ -3,7 +3,6 @@ import { ProductWithEditor } from "@components/organism";
 import React from "react";
 
 const EditorChoice = ({ data, isLoading = false }: { data: any, isLoading?: boolean }) => {
-  console.log(data)
   return (
     <HorizontalSection title="Editor's Choice" subTitle="Curated with love">
       <div className="grid grid-cols-5 gap-5">
