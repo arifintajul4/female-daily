@@ -10,9 +10,8 @@ import {
   PopularGroups,
   MacthesProduct
 } from '@components/section';
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from "axios";
 import { setDataHome } from 'redux/action';
 
 const HomePage = () => {
@@ -34,7 +33,7 @@ const HomePage = () => {
         ) : (
           <>
             <Bilboard />
-            <EditorChoice isLoading={isLoading} data={dataHome?.["editor's choice"]} />
+            <EditorChoice data={dataHome?.["editor's choice"]} />
             <MacthesProduct />
             <div
               style={{ width: 970, height: 250 }}

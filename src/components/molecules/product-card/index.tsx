@@ -1,7 +1,7 @@
 import { Card, Rating } from "@components/atoms";
 import React from "react";
 import Image from "next/image";
-import DefaultImage from "@assets/images/default-image.png";
+import SampleProduct from "@assets/images/sample-product.png";
 
 type ProductCardType = {
   border?: boolean;
@@ -17,7 +17,7 @@ const ProductCard = ({ border = true, data }: ProductCardType) => {
           objectFit="contain"
           width={680}
           height={810}
-          src={DefaultImage}
+          src={SampleProduct}
         />
       </figure>
       <Rating stars={3} total={7} average={data?.rating || 4.7} />
